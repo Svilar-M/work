@@ -19,12 +19,20 @@ Route::get('/', function () {
 
 Route::resource('posts', 'PostController');
 
+Route::resource('users', 'UserController');
 
 
+Route::get('users/{word}/{id}', 'UserController@showWithWord');
 
 Route::get('posts/{word}/{id}', 'PostController@showWithWord');
 
 
  
  
- 
+ Route::any('/login',function(){
+     return view('login');
+     
+ });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
