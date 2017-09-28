@@ -13,12 +13,18 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+    
+  });
+
 
 Route::resource('posts', 'PostController');
 
-$posts = App\Post::all();
 
-foreach ($posts as $post) {
-    echo $post->title. '<br>' .$post->body. '<br>'. $post->image. '<br>';
-}
+
+
+Route::get('posts/{word}/{id}', 'PostController@showWithWord');
+
+
+ 
+ 
+ 
